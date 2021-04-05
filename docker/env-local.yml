@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  base:
+    environment:
+      DB_HOST: mysql
+      DOMAIN: localhost
+      DEBUGBAR_ENABLED: 'true'
+      APP_URL: http://localhost:8022
+      FORCE_SCHEME: http
+
