@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class AddressByCityRequest
+ * @package App\Http\Requests
+ */
 class AddressByCityRequest extends FormRequest
 {
     /**
@@ -24,7 +28,20 @@ class AddressByCityRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'cityLetters' => 'required|min:2',
+        ];
+    }
+
+    /**
+     * Custom message for validation
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'cityLetters.required' => 'City Letters required',
+            'zip.min' => 'Must be at least 2 letters',
         ];
     }
 }

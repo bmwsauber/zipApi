@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddressByCityRequest;
 use App\Http\Requests\AddressByZipRequest;
 use App\Models\Address;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
 
 /**
  * Class AddressController
@@ -16,15 +15,16 @@ class AddressController extends Controller
 {
 
     /**
+     * Getting address' collection by Zip Code
+     *
      * @param AddressByZipRequest $request
      * @return JsonResponse
-     * @throws ValidationException
      */
     public function getAddressByZip(AddressByZipRequest $request)
     {
-        $validated = $request->validated();
+        $zip = $request->get('zip');
+        $collection = Address::where('zip', $zip)->get();
 
-        $collection = Address::where('zip' , $request->get('zip'))->get();
         $response = collect([
             'status' => 'success',
             'message' => 'addresses via zip',
@@ -36,16 +36,20 @@ class AddressController extends Controller
     }
 
     /**
+     * Getting address' collection by City
+     *
+     * @param AddressByCityRequest $request
      * @return JsonResponse
      */
-    public function getAddressByCity()
+    public function getAddressByCity(AddressByCityRequest $request)
     {
-        $collection = Address::limit(5)->get();
+        $cityLetters = $request->get('cityLetters');
+        $collection = Address::where('city', 'like', '%' . $cityLetters . '%')->get();
+
         $response = collect([
             'status' => 'success',
-            'message' => 'addresses via city',
+            'message' => 'addresses via zip',
             'count' => $collection->count(),
-            'page' => 'TODO',
             'data' => $collection
         ]);
 

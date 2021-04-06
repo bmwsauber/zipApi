@@ -63,6 +63,23 @@ return [
             ]) : [],
         ],
 
+        'mysql_testing' => [
+            'driver'         => 'mysql',
+            'host'           => 'mysql_testing',
+            'port'           => '3306',
+            'database'       => 'zip_api_testing',
+            'username'       => 'zip_api_testing',
+            'password'       => 'zip_api_testing',
+            'unix_socket'    => env('DB_SOCKET', ''),
+            'charset'        => 'utf8mb4',
+            'collation'      => 'utf8mb4_unicode_ci',
+            'prefix'         => '',
+            'prefix_indexes' => true,
+            'strict'         => true,
+            'engine'         => null,
+        ],
+
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

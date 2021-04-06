@@ -16,6 +16,9 @@ use \App\Http\Controllers\AddressImportController;
 |
 */
 
+/**
+ * General api urls here
+ */
 Route::group(['middleware' => ['api.auth'], 'prefix' => 'v1'], function () {
     Route::get('/addressByZip/', [AddressController::class, 'getAddressByZip'])
         ->name('get.address.by.zip');
@@ -23,6 +26,9 @@ Route::group(['middleware' => ['api.auth'], 'prefix' => 'v1'], function () {
         ->name('get.address.by.city');
 });
 
+/**
+ * Additional (Admin) links below
+ */
 Route::get('/address/update', [AddressImportController::class, 'updateAddressesCsv'])
     ->name('update.addresses.csv')
     ->middleware(['admin.auth']);
