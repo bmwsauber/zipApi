@@ -27,20 +27,17 @@ class ApiTest extends TestCase
 
         $this->assertEquals($status, $response->json('status'));
         $response->assertStatus($code);
-        $this->assertEquals($status, $response->json('status'));
     }
 
     /**
      * @dataProvider myCityParamsProvider
      */
-
     public function testAddressCityParams($param, $value, $status, $code)
     {
         $response = $this->get(route('get.address.by.city', [$param => $value]));
 
         $this->assertEquals($status, $response->json('status'));
         $response->assertStatus($code);
-        $this->assertEquals($status, $response->json('status'));
     }
 
     public function myZipParamsProvider()
