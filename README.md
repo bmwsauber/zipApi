@@ -43,7 +43,7 @@ http://localhost:8032/api/v1/addressByCity?cityLetters=New
 ```
 http://localhost:8032/api/address/update
 ```
-#Public Method Reference 
+# Public Method Reference 
 * App\Http\Controllers\AddressController
 ```
     getAddressByZip(AddressByZipRequest $request) : JsonResponse
