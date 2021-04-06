@@ -25,17 +25,17 @@ It will do all further necessary steps: composer install; migrations; and even r
 
 # Usage
 
-The project will be available on **localhost** port **8032** by default. (You can change port number in docker-compose.yml file)
+The project will be available on **localhost's** port **8032** by default. (You can change port number in docker-compose.yml file)
 
 
-Now we have **3 available endpoints** in our API.
+Now we have **3 endpoints** to our API.
 
 * Getting addresses by **zip code**:
 ```
 http://localhost:8032/api/v1/addressByZip?zip=00612
 ```
 
-* Getting addresses by **city name first letters**:
+* Getting addresses by **city name's first letters**:
 ```
 http://localhost:8032/api/v1/addressByCity?cityLetters=New
 ```
@@ -43,34 +43,38 @@ http://localhost:8032/api/v1/addressByCity?cityLetters=New
 ```
 http://localhost:8032/api/address/update
 ```
-
 #Public Method Reference 
-
 * App\Http\Controllers\AddressController
 ```
-    getAddressByZip(int  $zip) : JsonResponse
+    getAddressByZip(AddressByZipRequest $request) : JsonResponse
 
         Parameters
-              $zip - zip code (5 digits for USA)
+              AddressByZipRequest $request 
+               - valid zip code is expected
+
 
         Return Value
-              JsonResponse - Address Collection in JSON Format
+              JsonResponse 
+              - Address Collection in JSON Format
 ```
 ```
-  getAddressByCity(string  $zip) : JsonResponse
+  getAddressByCity(AddressByCityRequest $request) : JsonResponse
 
       Parameters
-            $zip - zip code
+            AddressByCityRequest $request 
+            - valid first 2 or more city name's letters is expected   
 
         Return Value
-            JsonResponse - Address Collection in JSON Format
+            JsonResponse 
+            - Address Collection in JSON Format
 ```
 * App\Http\Controllers\AddressImportController
 ```
     updateAddressesCsv() : JsonResponse
         
         Return Value
-            JsonResponse - Upload status
+            JsonResponse 
+            - Uploading proccess status
 
 
 ```
