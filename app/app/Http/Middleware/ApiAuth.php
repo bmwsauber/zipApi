@@ -4,6 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 
+/**
+ * Class ApiAuth
+ * @package App\Http\Middleware
+ */
 class ApiAuth
 {
     /**

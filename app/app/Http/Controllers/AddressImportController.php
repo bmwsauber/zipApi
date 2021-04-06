@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Address;
 use App\Imports\AddressImport;
+use Illuminate\Http\JsonResponse;
 use Maatwebsite\Excel\Facades\Excel;
 
 /**
@@ -13,7 +14,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class AddressImportController extends Controller
 {
     /**
-     * @return string
+     * @return JsonResponse
      */
     public function updateAddressesCsv()
     {
@@ -28,7 +29,7 @@ class AddressImportController extends Controller
 
     protected function exportCsvToDatabase()
     {
-        // Truncate table - is an "Adult decision!" :)
+        // Truncate table - is an "Adult decision!" I know :)
         // There is need a better way here.
         // I Suppose using additional table,
         // or even database would be a good point.

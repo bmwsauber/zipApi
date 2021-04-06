@@ -37,7 +37,7 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Throwable  $exception
+     * @param \Throwable $exception
      * @return void
      *
      * @throws \Throwable
@@ -50,8 +50,8 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Throwable  $exception
+     * @param \Illuminate\Http\Request $request
+     * @param \Throwable $exception
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @throws \Throwable
@@ -59,7 +59,7 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         /**
-         * 404
+         * Page not found - 404
          */
         if ($exception instanceof NotFoundHttpException) {
             $response = collect([
@@ -70,7 +70,7 @@ class Handler extends ExceptionHandler
         }
 
         /**
-         * not valid data
+         * not valid data - 422
          */
         if ($exception instanceof ValidationException) {
             $response = collect([

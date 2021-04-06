@@ -27,9 +27,9 @@ class AddressController extends Controller
 
         $response = collect([
             'status' => 'success',
-            'message' => 'addresses via zip',
+            'message' => 'Addresses collection via zip.',
             'count' => $collection->count(),
-            'data' => $collection
+            'data' => $collection,
         ]);
 
         return response()->json($response, 200, [], JSON_PRETTY_PRINT);
@@ -48,7 +48,7 @@ class AddressController extends Controller
 
         $response = collect([
             'status' => 'success',
-            'message' => 'addresses via zip',
+            'message' => 'Addresses collection via city letters',
             'count' => $collection->count(),
             'data' => $collection
         ]);

@@ -7,14 +7,18 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 
-
+/**
+ * Class AddressImport
+ * @package App\Imports
+ */
 class AddressImport implements ToModel, WithStartRow, WithChunkReading
 {
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * Columns mapping
+     *
+     * @param array $row
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public function model(array $row)
     {
         return new Address([
@@ -39,11 +43,21 @@ class AddressImport implements ToModel, WithStartRow, WithChunkReading
         ]);
     }
 
-    public function startRow() : int
+    /**
+     * Skip first row
+     *
+     * @return int
+     */
+    public function startRow(): int
     {
         return 2;
     }
 
+    /**
+     * Memory usage optimization
+     *
+     * @return int
+     */
     public function chunkSize(): int
     {
         return 1000;
