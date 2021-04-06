@@ -25,7 +25,7 @@ It will do all further necessary steps: composer install; migrations; and even r
 
 # Usage
 
-The project will be able on **localhost** port **8032** by default. (You can change port number in docker-compose.yml file)
+The project will be available on **localhost** port **8032** by default. (You can change port number in docker-compose.yml file)
 
 
 Now we have **3 available endpoints** in our API.
