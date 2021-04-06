@@ -46,7 +46,7 @@ http://localhost:8032/api/address/update
 # Public Method Reference 
 * App\Http\Controllers\AddressController
 ```  
-    **
+    /**
     * Get Addresses Collection via zip code (USA)
     */
     getAddressByZip(AddressByZipRequest $request) : JsonResponse
@@ -61,7 +61,7 @@ http://localhost:8032/api/address/update
               - Address Collection in JSON Format
 ```
 ```
-  **
+  /**
   * Getting address' collection by City's name first letters
   */
   getAddressByCity(AddressByCityRequest $request) : JsonResponse
@@ -77,7 +77,7 @@ http://localhost:8032/api/address/update
 * App\Http\Controllers\AddressImportController
 ```
      
-    **
+    /**
     * Start database updating proccess
     */
     updateAddressesCsv() : JsonResponse
